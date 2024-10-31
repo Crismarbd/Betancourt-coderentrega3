@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block title_head %}
+    Buscar Esmalte:
+{% endblock title_head %}
+{% block h1_header %} Buscar Esmalte {% endblock h1_header %}
+{% block main %}
+{% endblock main %}
+{% block content %}
+<form action={% url 'buscar_esmalte' %} method="POST"> 
+{% csrf_token %}
+    <p> Color: </p>
+    <input type='text' value='Color'>
+    <p> Marca: </p>
+    <input type='text' value='Marca'>
+    <button>Enviar</button>
+</form>
+{% endblock content %}

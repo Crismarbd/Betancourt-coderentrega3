@@ -1,0 +1,17 @@
+
+    {% extends 'index.html' %}
+    {% block title_head %}Segundo Template{% endblock title_head %}
+    {% block h1_header %}Soy el segundo Template{% endblock h1_header %}
+    {% block main %}
+    <h1> Segundo Template: </h1>
+    <h2> {{fecha_actual}} </h2> 
+    <p> Listado de numeros: </p>
+     <li>
+        <ul> 
+            {% for num in numeros %}
+             <ul> {{num}} </ul>  
+            {% endfor %}
+        </ul> 
+    </li>
+    {% endblock main %}
+    
