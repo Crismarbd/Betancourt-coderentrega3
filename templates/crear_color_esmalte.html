@@ -1,13 +1,27 @@
 {% extends 'index.html' %}
 {% load static %}
-{% block title_head %} Crear esmalte nuevo {% endblock title_head %}
-{% block h1_header %} Crear esmalte: {% endblock h1_header %}
+{% block title_head %} Crear esmalte {% endblock title_head %}
 {% block main %} 
 {% endblock main %}
 {% block content %}
+
 <form action={% url 'crear_esmaltes' %} method='POST'>
 {% csrf_token %}
    {{form}}
    <input type='submit' name='Enviar'>
 </form>
 {% endblock content %}
+{%block header%}
+<div class="masthead-content">
+   <div class="container px-5">
+       <h1 class="masthead-heading mb-0">Crear Esmalte</h1>
+       <h2 class="masthead-subheading mb-0"></h2>
+       
+   </div>
+</div>
+<div class="bg-circle-1 bg-circle"></div>
+<div class="bg-circle-2 bg-circle"></div>
+<div class="bg-circle-3 bg-circle"></div>
+<div class="bg-circle-4 bg-circle"></div>
+<h1 class="mb-5">
+{%endblock header%}

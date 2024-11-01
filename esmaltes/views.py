@@ -10,39 +10,16 @@ from .forms import BuscarEsmalteFormulario, CearEsmalteFormulario
 def inicio(request):
     return render (request, 'index.html')
 
-
-def listado_colores(request):
-    return HttpResponse('Listado de colores: ')
-
-def buscar_esmalte(request):
-    if request.method == 'POST':
-        formulario = BuscarEsmalteFormulario(request.POST)
+def buscar_esmaltes(request):
+    
+    formulario=BuscarEsmalteFormulario(request.GET)
+    esmaltes=Colores.objects.all()
+    if formulario.is_valid():
+        marca=formulario.cleaned_data.get('marca')
+        if marca:
+            esmaltes=Colores.objects.filter(marca__icontains=marca)
         
-        if formulario.is_valid():
-            color = formulario.cleaned_data('color')
-            marca = formulario.cleaned_data('marca')
-            esmaltes = Colores(color=color, marca=marca)
-            esmaltes.save()
-    return render (request, 'buscar_esmalte.html', {'form':'formulario'})
-
-
-def primer_template(request):
-    with open(r'templates\primer_template.html') as archivo_del_template:
-        template = Template(archivo_del_template.read())
-
-    contexto = Context()  
-    render_template = template.render(contexto)
-    
-    return HttpResponse(render_template)
-
-
-def segundo_template(request):
-    
-    fecha_actual = datetime.now()
-    datos = {'fecha_actual': fecha_actual,
-             'numeros': list(range(1, 11))}
-    
-    return render(request, 'segundo_template.html', datos)
+    return render (request, 'buscar_esmalte.html', {'esmaltes': esmaltes, 'forms': formulario})
 
 def crear_esmaltes(request):
     
@@ -60,6 +37,9 @@ def crear_esmaltes(request):
             colores.save() 
             
     return render(request, 'crear_color_esmalte.html', {'form': formulario})
+
+def mi_vista(request):
+    return render(request, 'mi_vista.html')
 
 
 

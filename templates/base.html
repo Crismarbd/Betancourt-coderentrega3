@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>One Page Wonder - Start Bootstrap Template</title>
+        <title>Inicio</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -32,15 +32,16 @@
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
                 <a class="navbar-brand" href= {% url "inicio" %} > Inicio </a>
-                <a class="navbar-brand" href= {% url "primer_template" %} > Primer Template </a>
-                <a class="navbar-brand" href= {% url "segundo_template" %} > Segundo Template </a>
-                <a class="navbar-brand" href= {% url "buscar_esmalte" %} >Buscar Esmalte</a>
                 <a class="navbar-brand" href= {% url "crear_esmaltes" %} >Crear Esmalte</a>
+                <a class="navbar-brand" href= {% url "buscar_esmaltes" %} >Buscar Esmalte</a>
+                <a class="navbar-brand" href= {% url "mi_vista" %} >Sobre mi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
+                        {% comment%}
                         <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
+                        {% endcomment%}
                     </ul>
                 </div> 
             </div>
@@ -52,7 +53,7 @@
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Bienvenido</h1>
                     <h2 class="masthead-subheading mb-0"></h2>
-                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+                    
                 </div>
             </div>
             <div class="bg-circle-1 bg-circle"></div>
@@ -72,14 +73,15 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/01.jpg" alt="..." /></div>
+                        {% comment "" %}
+                        <div class="p-5"><img class="img-fluid rounded-circle" src={%static "assets/img/01.jpg"%} alt="..." /></div>
+                        {% endcomment %}
+                        
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
                             {% block content %}
                             {% endblock content %}
-                            <h2 class="display-4">For those about to rock...</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                         </div>
                     </div>
                 </div>
@@ -90,12 +92,12 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6">
+                        {%comment%}
                         <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="..." /></div>
+                        {%endcomment%}
                     </div>
                     <div class="col-lg-6">
                         <div class="p-5">
-                            <h2 class="display-4">We salute you!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                         </div>
                     </div>
                 </div>
@@ -106,12 +108,12 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
+                        {%comment%}
                         <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/03.jpg" alt="..." /></div>
+                        {%endcomment%}
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Let there be rock!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                         </div>
                     </div>
                 </div>

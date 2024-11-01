@@ -6,5 +6,5 @@ class CearEsmalteFormulario(forms.Form):
     marca = forms.CharField(max_length=20)
 
 class BuscarEsmalteFormulario(forms.Form):
-    color = forms.CharField(max_length=20)
+    
     marca = forms.CharField(max_length=20)

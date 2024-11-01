@@ -1,17 +1,37 @@
 {% extends 'index.html' %}
 {% block title_head %}
-    Buscar Esmalte:
+    Buscar Esmalte
 {% endblock title_head %}
-{% block h1_header %} Buscar Esmalte {% endblock h1_header %}
+{%block header%}
+<div class="masthead-content">
+   <div class="container px-5">
+       <h1 class="masthead-heading mb-0">Buscar Esmalte</h1>
+       <h2 class="masthead-subheading mb-0"></h2>
+       
+   </div>
+</div>
+<div class="bg-circle-1 bg-circle"></div>
+<div class="bg-circle-2 bg-circle"></div>
+<div class="bg-circle-3 bg-circle"></div>
+<div class="bg-circle-4 bg-circle"></div>
+<h1 class="mb-5">
+{%endblock header%}
 {% block main %}
-{% endblock main %}
-{% block content %}
-<form action={% url 'buscar_esmalte' %} method="POST"> 
-{% csrf_token %}
-    <p> Color: </p>
-    <input type='text' value='Color'>
-    <p> Marca: </p>
-    <input type='text' value='Marca'>
-    <button>Enviar</button>
+{%endblock main%}
+{%block content%}
+<form action="{% url 'buscar_esmaltes' %}" method="get"> 
+{% csrf_token%}
+    {{ forms }}
+    <input type="submit" value="Buscar">
 </form>
-{% endblock content %}
+<ul>
+{% if esmaltes %}
+{% for esmalte in esmaltes %}
+<li> 
+ Marca: {{ esmalte.marca }}, Color: {{ esmalte.color }}</li>
+{% endfor %}
+{% else %}
+<p>No hay esmaltes registrados.</p>
+{% endif %}
+</ul>
+{%endblock content%}
